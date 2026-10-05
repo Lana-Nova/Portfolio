@@ -417,7 +417,7 @@ const PROJECTS = [
     category:"Research", date:"Summer 2025",
     description:"Authored key sections in final project report, contributing to significant metallurgical findings and advancements.",
     technologies:["Office Products","FEA","Medeley"],
-    image:"images/cmf graphic.png",
+    image:"images/cmf graphic.jpg",
     highlights:[
       "Collaborated with PhD team on ~$3M DOT project",
       "Reviewed and provided feedback on related research papers",
@@ -1020,7 +1020,7 @@ $('contact-form').addEventListener('submit', e => {
 
 // FOOTER
 $('footer-name').innerHTML = ME.name.split(' ')[0] + '<span>.</span>';
-$('footer-tagline').textContent = ME.title + ' passionate about sustainable engineering and innovative problem-solving.';
+$('footer-tagline').textContent = ME.title + ' passionate about ethical engineering and exciting problem-solving.';
 $('footer-contact').innerHTML = `<li><a href="mailto:${ME.email}">${ME.email}</a></li><li><a href="${ME.linkedin}" target="_blank">LinkedIn</a></li><li><a href="${ME.socialMedia}" target="_blank">Social Media</a></li>`;
 $('footer-copy').textContent = `© ${new Date().getFullYear()} ${ME.name}. Curated with passion and consistency.`;
 [[ME.linkedin,'LinkedIn',LI_PATH],[ME.socialMedia,'Social Media',IG_PATH],['mailto:'+ME.email,'Email',MAIL_PATH]].forEach(([href,label,path])=>{
