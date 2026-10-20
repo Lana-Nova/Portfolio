@@ -968,7 +968,7 @@ document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('cli
 $('hero-name-em').textContent = ME.name;
 $('hero-title').textContent = ME.title;
 $('hero-uni').textContent = ME.year + ' at ' + ME.university;
-$('hero-bio').textContent = ME.bio;
+$('hero-bio').textContent = ME.abio;
 $('hero-li').href = ME.linkedin;
 $('hero-gh').href = ME.socialMedia;
 $('hero-mail').href = 'mailto:' + ME.email;
@@ -982,7 +982,7 @@ $('resume-open-btn').href = ME.resumeURL;
 $('about-name').textContent = ME.name;
 $('about-role').textContent = ME.title;
 $('about-meta').innerHTML = `<span class="about-meta-item">${ME.year}, ${ME.university}, ${ME.location}</span>`;
-$('about-bio').textContent = ME.abio;
+$('about-bio').textContent = ME.bio;
 ME.passions.forEach(p => $('about-passions').appendChild(el('li', null, p)));
 if (ME.headshot) $('about-photo').innerHTML = `<img src="${ME.headshot}" alt="${ME.name}">`;
 
