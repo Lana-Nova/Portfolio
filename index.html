@@ -130,18 +130,6 @@ margin-bottom:10px;
 .about-passions li{font-size:14px;color:var(--text-2);padding-left:16px;position:relative;margin-bottom:10px;line-height:1.6;}
 .about-passions li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--em);}
 
-/* SKILLS */
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;}
-.skill-group{background:white;border:.5px solid var(--border);border-radius:var(--rl);padding:24px;}
-.skill-group-title{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--em);font-weight:500;margin-bottom:20px;}
-.skill-item{margin-bottom:16px;}
-.skill-item:last-child{margin-bottom:0;}
-.skill-row{display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px;}
-.skill-name{color:var(--text);}
-.skill-pct{color:var(--text-3);}
-.skill-bar{height:3px;background:var(--em-light);border-radius:2px;overflow:hidden;}
-.skill-fill{height:100%;background:var(--em);border-radius:2px;width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1);}
-
 /* PROJECTS */
 .proj-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;}
 .filter-btn{padding:7px 18px;border-radius:20px;font-size:13px;border:.5px solid var(--border);background:white;color:var(--text-2);cursor:pointer;transition:all .2s;font-family:var(--sans);}
@@ -357,26 +345,6 @@ const ME = {
 ]
 };
 
-const SKILLS = [
-  { name:"SolidWorks",            category:"CAD",           level:80 },
-  { name:"AutoCAD/Inventor",      category:"CAD",           level:65 },
-  { name:"Rhino",                 category:"CAD",           level:50 },
-  { name:"MATLAB",                category:"Programming",   level:80 },
-  { name:"Python",                category:"Programming",   level:75 },
-  { name:"Ansys Discovery",       category:"Analysis",      level:80 },
-  { name:"Luminary Cloud",        category:"Analysis",     level:70 },
-  { name:"3D Printing",           category:"Manufacturing", level:90 },
-  { name:"CNC Machining",         category:"Manufacturing", level:75 },
-  { name:"Manual Machining",      category:"Manufacturing", level:75 },
-  { name:"Manual Lathing",        category:"Manufacturing", level:50 },
-  { name:"Statics",               category:"Core",          level:95 },
-  { name:"Thermodynamics",        category:"Core",          level:85 },
-  { name:"Fluid Mechanics",       category:"Core",          level:85 },
-  { name:"Microsoft Products",    category:"Misc Tools",    level:90 },
-  { name:"Slack",                 category:"Misc Tools",    level:90 },
-  { name:"Canva",                 category:"Misc Tools",    level:90 },
-  { name:"GitHub",                category:"Misc Tools",    level:60 },
-];
 
 const PROJECTS = [
   {
@@ -710,7 +678,7 @@ const TESTIMONIALS = [
   <div class="nav-inner">
     <a href="#home" class="nav-logo" id="nav-logo">Name<span>.</span></a>
     <div class="nav-links">
-      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+      <a href="#about">About</a><a href="#projects">Projects</a>
       <a href="#experience">Experience</a><a href="#research">Research</a><a href="#contact">Contact</a>
     </div>
     <div class="nav-resume">
@@ -721,7 +689,7 @@ const TESTIMONIALS = [
   </div>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
-  <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+  <a href="#about">About</a><a href="#projects">Projects</a>
   <a href="#experience">Experience</a><a href="#research">Research</a><a href="#contact">Contact</a>
   <a id="mobile-resume-btn" href="#" target="_blank" style="color:var(--em);font-weight:500;border:none;">📄 View Resume</a>
 </div>
@@ -801,17 +769,6 @@ const TESTIMONIALS = [
   </div>
 </section>
 
-<section id="skills">
-  <div class="wrap">
-    <div class="section-header">
-      <p class="eyebrow">What I've Learned</p>
-      <h2 class="section-title">Skills & Expertise</h2>
-      <div class="em-rule"></div>
-      <p class="section-desc" style="margin-top:14px;">A comprehensive toolkit of technical skills and engineering competencies developed through coursework, projects, and hands-on experience.</p>
-    </div>
-    <div class="skills-grid" id="skills-grid"></div>
-  </div>
-</section>
 
 <section id="projects">
   <div class="wrap">
@@ -1003,22 +960,7 @@ $('about-bio').textContent = ME.bio;
 ME.passions.forEach(p => $('about-passions').appendChild(el('li', null, p)));
 if (ME.headshot) $('about-photo').innerHTML = `<img src="${ME.headshot}" alt="${ME.name}">`;
 
-// SKILLS
-const skillCats = [...new Set(SKILLS.map(s => s.category))];
-skillCats.forEach(cat => {
-  const g = el('div','skill-group');
-  g.innerHTML = `<p class="skill-group-title">${cat}</p>`;
-  SKILLS.filter(s => s.category===cat).forEach(s => {
-    g.innerHTML += `<div class="skill-item"><div class="skill-row"><span class="skill-name">${s.name}</span><span class="skill-pct">${s.level}%</span></div><div class="skill-bar"><div class="skill-fill" data-level="${s.level}"></div></div></div>`;
-  });
-  $('skills-grid').appendChild(g);
-});
-new IntersectionObserver((entries,obs) => {
-  if(entries[0].isIntersecting){
-    document.querySelectorAll('.skill-fill').forEach(b => b.style.width = b.dataset.level+'%');
-    obs.disconnect();
-  }
-},{threshold:.2}).observe($('skills-grid'));
+
 
 // PROJECTS
 const projCats = ['All',...new Set(PROJECTS.map(p=>p.category))];
