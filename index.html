@@ -327,7 +327,7 @@ const ME = {
   year:       "Third (Junior) Year",
   location:   "Location Flexible",
   bio:        "Motorsports enthusiast and engineering student, my passion for performance and precision behind the wheel led me naturally into Formula SAE, where automotive competition meets real-world engineering. That drive for solving complex, high-stakes problems carried into transportation research and, ultimately, into work spanning defense and aerospace. I have a combination of technical instinct and rigorous analytical thinking.",
-  abio:       "I'm a Mechanical Engineering student at Carnegie Mellon University pursuing a minor in Materials Science & Engineering. I'm fascinated by how products are conceived, built, tested, and improved, particularly when material selection, structural behavior, and manufacturing constraints all intersect. My experience spans composite manufacturing R&D, aerospace engineering support, Formula SAE, and motorsports, united by a consistent focus on hands-on problem solving and physical hardware. I enjoy translating ideas into working systems through design, experimentation, manufacturing, and testing. Outside of engineering, you'll usually find me around racecars, mentoring younger students, exploring new technical interests, or appreciating a well-designed serif typeface. I believe the best engineers combine technical depth with curiosity, humility, and an enduring desire to build useful things.",
+  abio:       "I'm a Mechanical Engineering student at Carnegie Mellon University pursuing a minor in Materials Science & Engineering. I'm fascinated by how products are conceived, built, tested, and improved, particularly when material selection, structural behavior, and manufacturing constraints all intersect.<br><br>My experience spans composite manufacturing R&D, aerospace engineering support, Formula SAE, and motorsports, united by a consistent focus on hands-on problem solving and physical hardware. I enjoy translating ideas into working systems through design, experimentation, manufacturing, and testing.<br><br>Outside of engineering, you'll usually find me around racecars, mentoring younger students, exploring new technical interests, or appreciating a well-designed serif typeface.<br><br>I believe the best engineers combine technical depth with curiosity, humility, and an enduring desire to build useful things.",
   email:      "Lana.Portanova@gmail.com",
   phone:      "+1 (757) 344-7152",
   linkedin:   "https://linkedin.com/in/lana-portanova",
@@ -942,7 +942,7 @@ document.querySelectorAll('.mobile-menu a').forEach(a => a.addEventListener('cli
 $('hero-name-em').textContent = ME.name;
 $('hero-title').textContent = ME.title;
 $('hero-uni').textContent = ME.year + ' at ' + ME.university;
-$('hero-bio').textContent = ME.abio;
+$('hero-bio').innerHTML = ME.abio;
 $('hero-li').href = ME.linkedin;
 $('hero-gh').href = ME.socialMedia;
 $('hero-mail').href = 'mailto:' + ME.email;
